@@ -1,3 +1,13 @@
-# CourseProject
+# CS410 - Text Information Systems - Sentiment Analysis of Tweets
 
-Please fork this repository and paste the github link of your fork on Microsoft CMT. Detailed instructions are on Coursera under Week 1: Course Project Overview/Week 9 Activities.
+## Group Name - GroupX
+
+## Members
+1. Hitesh Yadav - hitesh2@illinois.edu
+2. Shubhendu Bhaskar - sb59@illinois.edu
+3. Gopikrishnan Srinivasan - gs25@illinois.edu
+4. Sanjeev Singh - sksingh6@illinois.edu
+5. Chandan Goel - chandan3@illinois.edu
+
+## Documents:
+1. Project Proposal - [CS410 - Text Information Systems - GroupX - Project Proposal.docx]()
