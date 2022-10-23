@@ -10,4 +10,4 @@
 5. Chandan Goel - chandan3@illinois.edu
 
 ## Documents:
-1. Project Proposal - [CS410 - Text Information Systems - GroupX - Project Proposal.docx]()
+1. Project Proposal - [CS410 - Text Information Systems - GroupX - Project Proposal.pdf]()
