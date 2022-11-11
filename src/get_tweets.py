@@ -19,14 +19,7 @@ consumer_key_secret = config['twitter']['consumer_key_secret']
 date_since = datetime.today().strftime('%Y-%m-%d')
 
 
-df = pd.DataFrame(columns=['username',
-                            'description',
-                            'location',
-                            'following',
-                            'followers',
-                            'totaltweets',
-                            'retweetcount',
-                            'text',
+df = pd.DataFrame(columns=['text',
                             'hashtags'])
 
 
@@ -47,13 +40,13 @@ list_tweets = [tweet for tweet in tweets]
 i = 1
 
 for tweet in list_tweets:
-    username = tweet.user.screen_name
-    description = tweet.user.description
-    location = tweet.user.location
-    following = tweet.user.friends_count
-    followers = tweet.user.followers_count
-    totaltweets = tweet.user.statuses_count
-    retweetcount = tweet.retweet_count
+    # username = tweet.user.screen_name
+    # description = tweet.user.description
+    # location = tweet.user.location
+    # following = tweet.user.friends_count
+    # followers = tweet.user.followers_count
+    # totaltweets = tweet.user.statuses_count
+    # retweetcount = tweet.retweet_count
     hashtags = tweet.entities['hashtags']
 
     try:
@@ -64,10 +57,7 @@ for tweet in list_tweets:
     for j in range(0, len(hashtags)):
         hashtext.append(hashtags[j]['text'])
 
-    ith_tweet = [username, description,
-                location, following,
-                followers, totaltweets,
-                retweetcount, text, hashtext]
+    ith_tweet = [text, hashtext]
 
     df.loc[len(df)] = ith_tweet
 
