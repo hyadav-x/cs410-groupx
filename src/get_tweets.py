@@ -40,13 +40,6 @@ list_tweets = [tweet for tweet in tweets]
 i = 1
 
 for tweet in list_tweets:
-    # username = tweet.user.screen_name
-    # description = tweet.user.description
-    # location = tweet.user.location
-    # following = tweet.user.friends_count
-    # followers = tweet.user.followers_count
-    # totaltweets = tweet.user.statuses_count
-    # retweetcount = tweet.retweet_count
     hashtags = tweet.entities['hashtags']
 
     try:
