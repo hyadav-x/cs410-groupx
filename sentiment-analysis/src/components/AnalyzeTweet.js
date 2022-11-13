@@ -40,22 +40,31 @@ class AnalyzeTweet extends React.Component {
 
 
     render() {
-        return (
-            <Container>
-                <Row>
-                    <Col>
-                        <Container id="resultsContainer" fluid>
+        if(this.state.sentiment) {
+            return (
+            <Container id="resultsContainer" fluid>
+                <Row className="justify-content-md-center" ><Col xs lg="2"><b>Sentiment</b></Col><Col xs lg="2"><b>Score</b></Col></Row>
+                <Row className="justify-content-md-center">
+                    <Col xs lg="2">
+                        <Container>
                             {this.state.sentiment}
                         </Container>
                     </Col>
-                    <Col>
-                        <Container id="scoreContainer" fluid>
+                    <Col xs lg="2">
+                        <Container>
                             {this.state.score}
                         </Container>
                     </Col>
                 </Row>
             </Container>
         );
+        } else {
+            return (
+                <Container>
+                </Container>
+            );
+        }
+        
     }
 }
 
