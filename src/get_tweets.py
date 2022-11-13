@@ -33,7 +33,7 @@ hashtag="ElectionDay"
 tweets = tweepy.Cursor(api.search_tweets,
                                hashtag, lang="en",
                                since_id=date_since,
-                               tweet_mode='extended').items(10)
+                               tweet_mode='extended').items(1000)
 
 list_tweets = [tweet for tweet in tweets]
 
@@ -55,7 +55,8 @@ for tweet in list_tweets:
     df.loc[len(df)] = ith_tweet
 
     i = i+1
+filetime = datetime.now().strftime("%Y%d%m%H%M%s")
 
-filename = hashtag + '_tweets.csv'
+filename = hashtag + '_tweets_' + filetime + '.csv'
 
 df.to_csv(filename, index=False)
