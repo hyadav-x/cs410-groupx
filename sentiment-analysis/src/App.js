@@ -48,15 +48,17 @@ function App() {
           <Col>
             <Form>
               <Row className="justify-content-md-center">
-                <Col sm={{ span: 5, offset: 0 }}>
+                <Col sm lg="6">
                   <Form.Label htmlFor="inlineFormInput" visuallyHidden> Tweet </Form.Label>
                   <Form.Control as="textarea" rows={3} className="mb-2" id="inlineFormInput" placeholder="Enter your tweet here..." value={msg} onChange={e => setMessage(e.target.value)} />
                 </Col>
-                <Col sm={{ span: 2, offset: 0 }}>
+                <Col sm="auto">
                   <Row>
                     <Col><Button id="submitBtn" variant="primary" className="mb-2" onClick={analyzeTweet}>Submit</Button></Col>
                   </Row>
-                  <Row><Col><Button variant="warning" onClick={reset}>Reset</Button></Col></Row>
+                  <Row>
+                    <Col><Button variant="warning" onClick={reset}>Reset</Button></Col>
+                  </Row>
                 </Col>
               </Row>
               <Row>
