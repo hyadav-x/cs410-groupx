@@ -73,7 +73,7 @@ function App() {
             </Form>
           </Col>
         </Row>
-        <Row>
+        <Row className="justify-content-md-center">
           <AnalyzeTweet ref={fref}></AnalyzeTweet>
         </Row>
       </Container>

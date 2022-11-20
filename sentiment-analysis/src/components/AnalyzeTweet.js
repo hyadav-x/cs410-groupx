@@ -6,6 +6,11 @@ import { Badge } from "react-bootstrap";
 import { Image } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import CardHeader from "react-bootstrap/esm/CardHeader";
+import {HandThumbsUpFill} from  'react-bootstrap-icons';
+import {HandThumbsDownFill} from  'react-bootstrap-icons';
+import positiveImg from './thumbs-up.png';
+import negativeImg from './thumbs-down.png';
+
 
 class AnalyzeTweet extends React.Component {
 
@@ -42,25 +47,32 @@ class AnalyzeTweet extends React.Component {
     render() {
         if(this.state.sentiment) {
             return (
-            <Container id="resultsContainer" fluid>
-                <Row className="justify-content-md-center" ><Col xs lg="2"><b>Sentiment</b></Col><Col xs lg="2"><b>Score</b></Col></Row>
-                <Row className="justify-content-md-center">
-                    <Col xs lg="2">
-                        <Container>
-                            {this.state.sentiment}
-                        </Container>
-                    </Col>
-                    <Col xs lg="2">
-                        <Container>
-                            {this.state.score}
-                        </Container>
-                    </Col>
-                </Row>
-            </Container>
+                <Container  className="justify-content-md-center" fluid>
+                    <Card style={{ width: '18rem' }}>
+                        <HandThumbsUpFill className="bi bi-align-center" color="limegreen" size={96} title="positive" />
+                        <Card.Body>
+                            <Card.Title>{this.state.sentiment}</Card.Title>
+                            <Card.Text>
+                                This is an example explanation for why the decision was made to be positive.
+                                Maybe we could include which words impacted this decsion?
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Container>
         );
         } else {
             return (
-                <Container>
+                <Container class="resultsContainer" fluid>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" class="rounded mx-auto d-block" src={positiveImg} />
+                        <Card.Body>
+                            <Card.Title>Positive or Negative?</Card.Title>
+                            <Card.Text>
+                                This is an example explanation for why the decision was made to be positive.
+                                Maybe we could include which words impacted this decsion?
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
                 </Container>
             );
         }
