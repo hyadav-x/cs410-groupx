@@ -25,5 +25,3 @@ def get_sentiment(tweet: str):
     print("Prediction for tweet '{}': {}".format(tweet, prediction))
 
     return prediction
-
-get_sentiment('this is a good tweet')
