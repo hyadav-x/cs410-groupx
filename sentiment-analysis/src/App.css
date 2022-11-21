@@ -108,7 +108,7 @@
 }
 
 .card-text {
-  font-size: 13px;
+  font-size: 15px;
 }
 
 #resCnt {
@@ -117,7 +117,7 @@
 }
 
 .card-title {
-  font-size: 14px;
+  font-size: 15px;
   text-overflow: nowrap;
   background-color: transparent;
   padding-left: 0px;

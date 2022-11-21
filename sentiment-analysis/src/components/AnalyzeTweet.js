@@ -17,7 +17,8 @@ class AnalyzeTweet extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            result: ""
+            sentiment: "",
+            score: ""
         }
     }
 
@@ -45,38 +46,38 @@ class AnalyzeTweet extends React.Component {
 
 
     render() {
-        if(this.state.sentiment) {
+        if (this.state.sentiment == "positive") {
             return (
-                <Container  className="justify-content-md-center" fluid>
-                    <Card style={{ width: '18rem' }}>
-                        <HandThumbsUpFill className="bi bi-align-center" color="limegreen" size={96} title="positive" />
-                        <Card.Body>
-                            <Card.Title>{this.state.sentiment}</Card.Title>
-                            <Card.Text>
-                                This is an example explanation for why the decision was made to be positive.
-                                Maybe we could include which words impacted this decsion?
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Container>
-        );
+                <Card style={{ width: '18rem' }}>
+                    <Card.Body>
+                        <Card.Title>Positive</Card.Title>
+                        <Card.Text>
+                            This is an example explanation for why the decision was made to be positive.
+                            Maybe we could include which words impacted this decsion?
+                        </Card.Text>
+                        <Card.Img variant="bottom" class="rounded mx-auto d-block" src={positiveImg} />
+                    </Card.Body>
+                </Card>
+            );
+        } else if (this.state.sentiment == "negative") {
+            return (
+                <Card style={{ width: '18rem' }}>
+                    <Card.Body>
+                        <Card.Title>Negative</Card.Title>
+                        <Card.Text>
+                            This is an example explanation for why the decision was made to be negative.
+                            Maybe we could include which words impacted this decsion?
+                        </Card.Text>
+                        <Card.Img variant="bottom" class="rounded mx-auto d-block" src={negativeImg} />
+                    </Card.Body>
+                </Card>
+            );
         } else {
             return (
-                <Container class="resultsContainer" fluid>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" class="rounded mx-auto d-block" src={positiveImg} />
-                        <Card.Body>
-                            <Card.Title>Positive or Negative?</Card.Title>
-                            <Card.Text>
-                                This is an example explanation for why the decision was made to be positive.
-                                Maybe we could include which words impacted this decsion?
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Container>
+                <Container></Container>
             );
         }
-        
+
     }
 }
 
