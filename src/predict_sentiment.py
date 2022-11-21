@@ -1,8 +1,6 @@
 import pickle
 import pandas as pd
 from data_preprocessing import *
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics import confusion_matrix, classification_report
 
 testTweet = pd.DataFrame([[0, 'neutral tweet']], columns=['target', 'text'])
 
