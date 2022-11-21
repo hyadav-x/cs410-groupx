@@ -18,6 +18,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import confusion_matrix, classification_report
 
+# Pickle
+import pickle
 
 DATASET_COLUMNS=['target','ids','date','flag','user','text']
 DATASET_ENCODING = "ISO-8859-1"
@@ -43,7 +45,6 @@ dataset = pd.concat([data_pos, data_neg])
 def cleaning_URLs(data):
     return re.sub('((www.[^s]+)|(https?://[^s]+))',' ',data)
 dataset['text'] = dataset['text'].apply(lambda x: cleaning_URLs(x))
-#print(dataset['text'].head())
 
 # Remove punctuation
 english_punctuations = string.punctuation
@@ -53,13 +54,11 @@ def cleaning_punctuations(text):
     translator = str.maketrans('', '', punctuations_list)
     return text.translate(translator)
 dataset['text']= dataset['text'].apply(lambda x: cleaning_punctuations(x))
-#print(dataset['text'].head())
 
 # Remove repeating characters
 def cleaning_repeating_char(text):
     return re.sub(r'(.)1+', r'1', text)
 dataset['text'] = dataset['text'].apply(lambda x: cleaning_repeating_char(x))
-#print(dataset['text'].head())
 
 # convert to lower
 dataset['text'] = dataset['text'].str.lower()
@@ -69,19 +68,16 @@ STOPWORDS = set(stopwords.words('english'))
 def cleaning_stopwords(text):
     return " ".join([word for word in str(text).split() if word not in STOPWORDS])
 dataset['text'] = dataset['text'].apply(lambda text: cleaning_stopwords(text))
-#print(dataset['text'].head())
 
 # Remove numbers
 def cleaning_numbers(data):
     return re.sub('[0-9]+', '', data)
 dataset['text'] = dataset['text'].apply(lambda x: cleaning_numbers(x))
-#print(dataset['text'].head())
 
 
 # Tokenize
 tokenizer = RegexpTokenizer("[\w']+")
 dataset['text'] = dataset['text'].apply(tokenizer.tokenize)
-#print(dataset['text'].head())
 
 # Stemming
 st = nltk.PorterStemmer()
@@ -98,10 +94,12 @@ def lemmatizer_on_text(data):
     return data
 dataset['text'] = dataset['text'].apply(lambda x: lemmatizer_on_text(x))
 
+print(dataset['text'].head())
 
 # Convert text to string
 dataset['text'] = [' '.join(map(str, l)) for l in dataset['text']]
-# print(dataset['text'].head())
+
+print(dataset['text'].head())
 
 X = dataset['text']
 y = dataset['target']
@@ -110,7 +108,7 @@ X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = 0.05, random
 
 vectorizer = TfidfVectorizer(ngram_range=(1,2), max_features=500000)
 
-vectorizer.fit(X_train, None)
+vectorizer.fit(X_train, y_train)
 X_train_vectorized = vectorizer.transform(X_train)
 X_test_vectorized  = vectorizer.transform(X_test)
 
@@ -128,5 +126,9 @@ def model_Evaluate(model):
 
 lrModel = LogisticRegression(C = 2, max_iter = 1000, n_jobs=-1)
 lrModel.fit(X_train_vectorized, y_train)
-model_Evaluate(lrModel)
-y_pred = lrModel.predict(X_test_vectorized)
+
+model_filename = 'lrModel_trained.sav'
+pickle.dump(lrModel, open(model_filename, 'wb'))
+
+sampleTweet = ["I like machine learning."]
+inputData = pd.DataFrame(sampleTweet, columns=['text'])
