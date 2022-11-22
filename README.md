@@ -16,11 +16,11 @@
 ## Running the application
 Download the code from github
 - Run Backend server
-  - Go to the directory flask-server `cd flask-server`
-  - Make sure you have the dependencies installed - `python 3.7, npm 8.19, node v19, flask, flask-cors`
+  - Install the required dependencies - `pip install -r requirements.txt`
+  - Go to the directory backend `cd backend`
   - Run the server: `python server.py`
 - Run Frontend
-  - Go to the directory sentiment-analysis `cd sentiment-analysis`
+  - Go to the directory frontend `cd frontend`
   - Install the dependencies - `npm install`
   - Run the app - `npm start`
   - Open a browser and go to url http://localhost:3000
