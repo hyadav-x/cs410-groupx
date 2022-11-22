@@ -189,4 +189,3 @@ yarn-error.log*
 config.ini
 *.csv
 src/__pycache__
-*.pickle
