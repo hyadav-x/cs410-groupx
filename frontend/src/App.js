@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
@@ -15,8 +14,6 @@ function App() {
 
   const fref = useRef()
   const [msg, setMessage] = useState("");
-
-
 
   const reset = () => {
     setMessage("")

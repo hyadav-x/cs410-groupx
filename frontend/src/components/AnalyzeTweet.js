@@ -1,13 +1,7 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
 import Container from "react-bootstrap/esm/Container";
-import Table from "react-bootstrap/Table"
-import { Badge } from "react-bootstrap";
-import { Image } from "react-bootstrap";
+import Spinner from "react-bootstrap/Spinner";
 import { Card } from "react-bootstrap";
-import CardHeader from "react-bootstrap/esm/CardHeader";
-import {HandThumbsUpFill} from  'react-bootstrap-icons';
-import {HandThumbsDownFill} from  'react-bootstrap-icons';
 import positiveImg from './thumbs-up.png';
 import negativeImg from './thumbs-down.png';
 
@@ -18,14 +12,16 @@ class AnalyzeTweet extends React.Component {
         super(props);
         this.state = {
             sentiment: "",
-            score: ""
+            score: "",
+            loading: false
         }
     }
 
     reset() {
         this.setState({
             sentiment: "",
-            score: ""
+            score: "",
+            loading: false
         })
     }
 
@@ -34,7 +30,8 @@ class AnalyzeTweet extends React.Component {
 
         this.setState({
             sentiment: "",
-            score: ""
+            score: "",
+            loading: true
         })
 
         const requestOptions = {
@@ -45,12 +42,15 @@ class AnalyzeTweet extends React.Component {
 
         fetch("http://localhost:5000/sentiment", requestOptions).then(res => res.json()).then(res => {
             console.log(res)
-            this.setState({ sentiment: res.sentiment, score: res.score })
+            this.setState({ sentiment: res.sentiment, score: res.score, loading: false })
         }, (error) => { alert("Error occurred while fetching the response..") })
     }
 
 
     render() {
+        if(this.state.loading) {
+            return <Spinner animation="border" />;
+        }
         if (this.state.sentiment) {
             return (
                 <Card style={{ width: '18rem' }}>
@@ -59,7 +59,7 @@ class AnalyzeTweet extends React.Component {
                         <Card.Text>
                             Our model has analyzed your tweet message and resulted in a {this.state.sentiment} sentiment. 
                         </Card.Text>
-                        <Card.Img variant="bottom" class="rounded mx-auto d-block" src={this.state.sentiment == "Positive" ? positiveImg : negativeImg} />
+                        <Card.Img variant="bottom" class="rounded mx-auto d-block" src={this.state.sentiment === "Positive" ? positiveImg : negativeImg} />
                     </Card.Body>
                 </Card>
             );
