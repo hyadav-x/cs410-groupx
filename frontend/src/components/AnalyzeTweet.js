@@ -32,43 +32,34 @@ class AnalyzeTweet extends React.Component {
     analyzeTweet(msg) {
         console.log(msg)
 
+        this.setState({
+            sentiment: "",
+            score: ""
+        })
+
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ inputTweet: msg })
         };
 
-        fetch("http://127.0.0.1:5000/sentiment", requestOptions).then(res => res.json()).then(res => {
+        fetch("http://localhost:5000/sentiment", requestOptions).then(res => res.json()).then(res => {
             console.log(res)
             this.setState({ sentiment: res.sentiment, score: res.score })
-        }, (error) => { alert(" error while fetching..") })
+        }, (error) => { alert("Error occurred while fetching the response..") })
     }
 
 
     render() {
-        if (this.state.sentiment == "positive") {
+        if (this.state.sentiment) {
             return (
                 <Card style={{ width: '18rem' }}>
                     <Card.Body>
-                        <Card.Title>Positive</Card.Title>
+                        <Card.Title>{this.state.sentiment}</Card.Title>
                         <Card.Text>
-                            This is an example explanation for why the decision was made to be positive.
-                            Maybe we could include which words impacted this decsion?
+                            Our model has analyzed your tweet message and resulted in a {this.state.sentiment} sentiment. 
                         </Card.Text>
-                        <Card.Img variant="bottom" class="rounded mx-auto d-block" src={positiveImg} />
-                    </Card.Body>
-                </Card>
-            );
-        } else if (this.state.sentiment == "negative") {
-            return (
-                <Card style={{ width: '18rem' }}>
-                    <Card.Body>
-                        <Card.Title>Negative</Card.Title>
-                        <Card.Text>
-                            This is an example explanation for why the decision was made to be negative.
-                            Maybe we could include which words impacted this decsion?
-                        </Card.Text>
-                        <Card.Img variant="bottom" class="rounded mx-auto d-block" src={negativeImg} />
+                        <Card.Img variant="bottom" class="rounded mx-auto d-block" src={this.state.sentiment == "Positive" ? positiveImg : negativeImg} />
                     </Card.Body>
                 </Card>
             );

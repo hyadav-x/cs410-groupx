@@ -98,9 +98,14 @@
 }
 
 .card-title {
-  padding-top: 20px;
-  font-size: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 15px;
   font-weight: bold;
+  text-align: center;
+  text-overflow: nowrap;
+  background-color: transparent;
+  padding-left: 0px;
 }
 
 .card-img-top {
@@ -114,13 +119,6 @@
 #resCnt {
   font-size: 12px;
   font-weight: bold;
-}
-
-.card-title {
-  font-size: 15px;
-  text-overflow: nowrap;
-  background-color: transparent;
-  padding-left: 0px;
 }
 
 .card-header {
