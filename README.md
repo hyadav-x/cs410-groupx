@@ -19,11 +19,12 @@ Download the code from github
 Make sure you have python v3.10.6, node v19 and npm 8.19 installed
 
 - Run Backend server
-  - Install the required dependencies - `pip install -r requirements.txt`
+  - Install the required dependencies: `pip install -r requirements.txt`
   - Go to the directory backend `cd backend`
+  - Run the nltk modules file: `python nltk_modules.py`
   - Run the server: `python server.py`
 - Run Frontend server
   - Go to the directory frontend `cd frontend`
-  - Install the dependencies - `npm install`
-  - Run the app - `npm start`
+  - Install the dependencies: `npm install`
+  - Run the app: `npm start`
   - Open a browser and go to url http://localhost:3000
