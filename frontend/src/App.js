@@ -35,7 +35,7 @@ function App() {
               src={homepageImage}
               width="120"
               height="50"
-            /><span id="titleSpan">Twitter Sentiment Analysis</span></Navbar.Brand>
+            /><span id="titleSpan">Sentiment Analysis of Tweets</span></Navbar.Brand>
           </Container>
         </Navbar>
       </Container>
