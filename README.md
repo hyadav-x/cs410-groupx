@@ -14,7 +14,7 @@
 2. Progress Report - [CS410 - Text Information Systems - Progress Report.pdf](https://github.com/hyadav-x/cs410-groupx/blob/main/CS410%20-%20Text%20Information%20Systems%20-%20Progress%20Report.pdf)
 3. Final Report - [CS410 - Text Information Systems - Final Report.pdf](https://github.com/hyadav-x/cs410-groupx/blob/main/CS410%20-%20Text%20Information%20Systems%20-%20Final%20Report.pdf)
 4. Final Presentation PPT - [CS410 - Text Information Systems - Final presentation.pptx](https://github.com/hyadav-x/cs410-groupx/blob/main/CS410%20-%20Text%20Information%20Systems%20-%20Final%20presentation.pptx)
-5. Final Project Presentation and Demo - [CS410 - Text Information Systems - Tweeter Sentiment Analysis](https://mediaspace.illinois.edu/media/t/1_ulbtkacf)
+5. Final Project Presentation and Demo - [CS410 - Text Information Systems - Sentiment Analysis of Tweets](https://mediaspace.illinois.edu/media/t/1_ulbtkacf)
 
 ## Running the application
 Download the code from github
